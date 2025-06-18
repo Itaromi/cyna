@@ -4,7 +4,7 @@ services:
     image: registry.gitlab.com/cyna-project/cyna-auth:latest
     container_name: cyna-auth
     ports:
-      - "3000:3000"
+      - "3001:3000"  # host:container
     env_file:
       - ./cyna-auth/.env
     depends_on:
@@ -15,7 +15,7 @@ services:
     image: registry.gitlab.com/cyna-project/cyna-product:latest
     container_name: cyna-product
     ports:
-      - "4000:4000"
+      - "4001:4000"
     env_file:
       - ./cyna-product/.env
     depends_on:
@@ -59,7 +59,7 @@ services:
       POSTGRES_PASSWORD: admin
       POSTGRES_DB: cyna_product
     ports:
-      - "5434:5433"
+      - "5434:5432"
     volumes:
       - pgdata-product:/var/lib/postgresql/data
 
