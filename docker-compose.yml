@@ -1,7 +1,6 @@
-version: "3.9"
-
 services:
   cyna-auth:
+    platform: linux/amd64
     image: registry.gitlab.com/cyna-project/cyna-auth:latest
     container_name: cyna-auth
     ports:
@@ -12,24 +11,24 @@ services:
       - postgres-auth
 
   cyna-product:
+    platform: linux/amd64
     image: registry.gitlab.com/cyna-project/cyna-product:latest
     container_name: cyna-product
     ports:
-      - "5000:5000"
+      - "4000:4000"
     env_file:
       - ./cyna-product/.env
     depends_on:
       - postgres-product
 
   cyna-billing:
+    platform: linux/amd64
     image: registry.gitlab.com/cyna-project/cyna-billing:latest
     container_name: cyna-billing
     ports:
-      - "4000:4000"
+      - "5001:5000"
     env_file:
       - ./cyna-billing/.env
-    depends_on:
-      - postgres-billing
 
   postgres-auth:
     image: postgres:15
