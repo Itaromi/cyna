@@ -30,6 +30,15 @@ services:
     env_file:
       - ./cyna-billing/.env
 
+  cyna-gateway:
+    platform: linux/amd64
+    image: registry.gitlab.com/cyna-project/cyna-gateway:latest
+    container_name: cyna-gateway
+    ports:
+      - "2000:2000"
+    env_file:
+      - ./cyna-gateway/.env
+
   postgres-auth:
     image: postgres:15
     container_name: postgres-auth
