@@ -39,6 +39,16 @@ services:
     env_file:
       - ./cyna-gateway/.env
 
+  cyna-app:
+    platform: linux/amd64
+    image: registry.gitlab.com/cyna-project/cyna-app:latest
+    container_name: cyna-app
+    ports:
+      - "5173:5173"
+    env_file:
+      - ./cyna-app/.env
+
+
   postgres-auth:
     image: postgres:15
     container_name: postgres-auth
