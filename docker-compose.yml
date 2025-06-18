@@ -35,7 +35,7 @@ services:
     image: registry.gitlab.com/cyna-project/cyna-app:latest
     container_name: cyna-app
     ports:
-      - "5173:5173"
+      - "5173:80"
     env_file:
       - ./cyna-app/.env
 
